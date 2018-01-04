@@ -60,7 +60,7 @@ inline void semaphore<C>::acquire()
 template<typename C>
 inline void semaphore<C>::release()
 {
-    std::unique_lock<std::mutex> lock(mMutex);
+    std::lock_guard<std::mutex> lock(mMutex);
 
     ++mCount;
 
